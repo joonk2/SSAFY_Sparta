@@ -7,7 +7,7 @@ import java.util.Arrays;
 //import java.util.HashSet;
 
 
-public class swea_15809_전국시대 {
+public class boj_15809_전국시대 {
 	static int[] parents, troops;
 //	static Set<Integer> HS = new HashSet<>();
 	
