@@ -67,13 +67,13 @@ for tc in range(1, T+1):
 	rep = [i for i in range(N+1)]
 	
 	
-	# n1, n2, union
+	# M만큼 n1, n2 반복 할당하고 union
 	for i in range(M):
 		n1 = arr[i*2]
 		n2 = arr[i*2 + 1]
 		union(n1, n2)
 	
-	# i가 어떤 집합의 대표인지 찾기
+	# i가 어떤 집합의 대표에 속하면 cnt++
 	cnt = 0
 	for i in range(1, N+1):
 		if rep[i] == i:
