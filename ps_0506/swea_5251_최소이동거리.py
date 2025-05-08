@@ -69,7 +69,7 @@ for tc in range(1, T+1):
 	# adj_lst
 	adj_lst = [ [] for _ in range(N+1) ]
 	
-	# s, e, w
+	# E (s, e, w)
 	for _ in range(E):
 		s, e, w = list(map(int, input().split()))
 		adj_lst[s].append( (e,w) )
