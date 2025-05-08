@@ -44,33 +44,39 @@
 
 
 def find_set(x):
-    while rep[x] != x:
-        x = rep[x]
-    return x
+	while rep[x] != x:
+		x = rep[x]
+	return x
+
 
 def union(x,y):
-    rep[find_set(y)] = find_set(x)
+	rep[find_set(y)] = find_set(x)
 
 
 
 T = int(input())
+# test case
 for tc in range(1, T+1):
-    N, M = list(map(int, input().split()))
-    arr = list(map(int, input().split()))
-
-    rep = [i for i in range(N+1)]
-
-    # n1, n2 입력후 합집합 형성
-    for i in range(M):
-        n1 = arr[i*2]
-        n2 = arr[i*2 + 1]
-        union(n1, n2)
-
-
-    # i가 어떤 집합의 대표인지 찾기
-    cnt = 0
-    for i in range(1, N+1):
-        if rep[i] == i:
-            cnt += 1
-
-    print(f"#{tc} {cnt}")
+	# N, M
+	N, M = list(map(int, input().split()))
+	
+	# arr
+	arr = list(map(int, input().split()))
+	
+	# rep
+	rep = [i for i in range(N+1)]
+	
+	
+	# n1, n2, union
+	for i in range(M):
+		n1 = arr[i*2]
+		n2 = arr[i*2 + 1]
+		union(n1, n2)
+	
+	# i가 어떤 집합의 대표인지 찾기
+	cnt = 0
+	for i in range(1, N+1):
+		if rep[i] == i:
+			cnt += 1
+	
+	print(f"#{tc} {cnt}")
