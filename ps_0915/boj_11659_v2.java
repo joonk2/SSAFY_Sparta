@@ -26,7 +26,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-public class boj_11659_구간합구하기_v2 {
+public class boj_11660_구간합구하기5_v2 {
 	static int N, M;
 	static int[][] S;
 	
