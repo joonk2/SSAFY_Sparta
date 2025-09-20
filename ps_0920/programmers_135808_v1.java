@@ -1,50 +1,27 @@
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.HashMap;
-
-import java.util.List;
-import java.util.LinkedList;
-
+import java.util.Arrays;
 
 class Solution {
-    static Map<String, PriorityQueue<String>> graph;
-    static List<String> route;
-    
-    public String[] solution(String[][] tickets) {
-        graph = new HashMap<>();
-        route = new LinkedList<>();
-        
-        for (String[] t : tickets) {
-            String from = t[0];
-            String to = t[1];
-            if (!graph.containsKey(from)) {
-                graph.put(from, new PriorityQueue<>());
-            }
-            graph.get(from).add(to);
-        }
-        
-        
-        String start_node = "ICN";
-        DFS(start_node);
-        
-        String[] answer = new String[route.size()];
-        for (int i = 0; i < route.size(); i++) {
-            answer[i] = route.get(i);
-        }
+    public int solution(int k, int m, int[] score) {
+        int answer = 0;
+        Arrays.sort(score);
+        answer = what_is_max_profit(k, m, score);
         return answer;
     }
-    
-    
-    
-    static void DFS(String cur_node) {
-        PriorityQueue<String> pq = graph.get(cur_node);
-        while (pq != null && !pq.isEmpty()) {
-            String next_node = pq.poll();
-            DFS(next_node);
+
+
+    static int what_is_max_profit(int k, int m, int[] score) {
+        int T = score.length / m;
+        int res = 0;
+        int N = score.length-1;
+        int min_idx = N-m+1;
+        while (T > 0) {
+            res += (score[min_idx] * m);
+            N -= m;
+            min_idx -= m;
+            T--;
         }
-        route.add(0, cur_node);
+        return res;
     }
-    
-    
-    
+
+
 }
