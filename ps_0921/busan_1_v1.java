@@ -5,6 +5,7 @@
 1 <= X,Y <= 100;
 */
 
+
 package boj;
 
 import java.io.IOException;
